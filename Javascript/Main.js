@@ -807,6 +807,7 @@ var Square_Btn_Image = new Image();
 var Start_Travel_Btn_Image = new Image();
 var Forward_Arrow_Image = new Image();
 var Backward_Arrow_Image = new Image();
+var Map_Image = new Image();
 
 Background_Image.src = 'Images/Train_Station_Background.png';
 Easy_Card_Image.src = 'Images/Easy_Card.png';
@@ -819,6 +820,7 @@ Square_Btn_Image.src = 'Images/Square_Btn_Image.png';
 Start_Travel_Btn_Image.src = 'Images/Start_Travel_Btn_Image.png';
 Forward_Arrow_Image.src = 'Images/Forward_Arrow_Image.png';
 Backward_Arrow_Image.src = 'Images/Backward_Arrow_Image.png';
+Map_Image.src = 'Images/Map_Image.png';
 
 //-----------------------------------------------------------------------
 var Default_Train = new Image();
@@ -965,7 +967,9 @@ function Load_Game_Station_Page()
     ctx.fillText("Start Travel   >", (canvas.width / 2 + 303), (canvas.height / 2 + 327));
 }
 
-
+function Load_Map_Overlay() {
+    ctx.drawImage(Map_Image, 0, 0, canvas.width, canvas.height);
+}
 
 var Start_Menu_Page = true;
 
@@ -1080,7 +1084,7 @@ canvas.addEventListener('click', e =>
 
         if (MouseX >= Map_Btn_X_Axis && MouseX <= Map_Btn_X_Axis + Map_Btn_Width && MouseY <= Map_Btn_Y_Axis + Map_Btn_Height && MouseY >= Map_Btn_Y_Axis) {
             console.log("Map Clicked")
-            
+            Load_Map_Overlay();
         }
     }
 
