@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JunLoong_A2</title>
+	<script src="Javascript/Main.js" defer></script>
+</head>
+
+<body>
+	<h1>MRT Game</h1>
+	
+	<canvas id="Mini_Game_Canvas" width="1280" height="720" style="border:1px solid #000000;">
+	</canvas>
+	<div id="Diffculty_Level">
+		<button onclick="Game_Diffculty('Easy')">Easy</button>
+		<button onclick="Game_Diffculty('Normal')">Normal</button>
+		<button onclick="Game_Diffculty('Rush_Hour')">Rush Hour</button>
+	</div>
+	
+	<div id="Game_Play">
+		<p id="Direction_Display"> - </p>
+		<p id="Line_Display"> - </p>
+		<p id="Current_Location_Display"> - </p>
+		<p id="Destination_Location_Display"> - </p>
+		<p id="Display_Screen"> - </p>
+
+		<button onclick="Start_Train()">Start Train</button>
+		<button onclick="Switch_Direction()">Switch Direction</button>
+		<button onclick="Start_Travel()">Start Travel</button>
+	</div>
+</body>
+</html>
