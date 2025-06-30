@@ -854,10 +854,150 @@ var Line_Images =
     TE: TE_Line
 };
 
+
+// x = 640  // y = 360
+var Station_Coordinates =
+{
+    "Jurong East":
+    {
+        x: (canvas.width / 2) - 157,
+        y: (canvas.height / 2) + 71,
+    },
+    "Woodlands":
+    {
+        x: (canvas.width / 2) + 117,
+        y: (canvas.height / 2) -240,
+    },
+    "Bishan":
+    {
+        x: (canvas.width / 2) + 147,
+        y: (canvas.height / 2) - 2,
+    },
+    "Dhoby Ghaut":
+    {
+        x: (canvas.width / 2) + 85,
+        y: (canvas.height / 2) + 128,
+    },
+    "City Hall":
+    {
+        x: (canvas.width / 2) + 141,
+        y: (canvas.height / 2) + 188,
+    },
+    "Raffles Place":
+    {
+        x: (canvas.width / 2) + 116,
+        y: (canvas.height / 2) + 201,
+    },
+    "Newton":
+    {
+        x: (canvas.width / 2) + 89,
+        y: (canvas.height / 2) + 82,
+    },
+    "Marina Bay":
+    {
+        x: (canvas.width / 2) + 126,
+        y: (canvas.height / 2) + 244,
+    },
+    "Outram Park":
+    {
+        x: (canvas.width / 2) + 33,
+        y: (canvas.height / 2) + 203,
+    },
+    "HarbourFront":
+    {
+        x: (canvas.width / 2) - 7,
+        y: (canvas.height / 2) + 227,
+    },
+    "Paya Lebar":
+    {
+        x: (canvas.width / 2) + 317,
+        y: (canvas.height / 2) + 82,
+    },
+    "Buona Vista":
+    {
+        x: (canvas.width / 2) - 84,
+        y: (canvas.height / 2) + 115,
+    },
+    "Chinatown":
+    {
+        x: (canvas.width / 2) + 62,
+        y: (canvas.height / 2) + 187,
+    },
+    "Serangoon":
+    {
+        x: (canvas.width / 2) + 221,
+        y: (canvas.height / 2) + 23,
+    },
+    "Little India":
+    {
+        x: (canvas.width / 2) + 126,
+        y: (canvas.height / 2) + 105,
+    },
+    "Botanic Garden":
+    {
+        x: (canvas.width / 2) + 29,
+        y: (canvas.height / 2) + 48,
+    },
+    "MacPherson":
+    {
+        x: (canvas.width / 2) + 281,
+        y: (canvas.height / 2) + 58,
+    },
+    "Bayfront":
+    {
+        x: (canvas.width / 2) + 117,
+        y: (canvas.height / 2) - 240,
+    },
+    "Promenade":
+    {
+        x: (canvas.width / 2) + 224,
+        y: (canvas.height / 2) + 184,
+    },
+    "Stevens":
+    {
+        x: (canvas.width / 2) + 56,
+        y: (canvas.height / 2) + 64,
+    },
+    "Caldecott":
+    {
+        x: (canvas.width / 2) + 83,
+        y: (canvas.height / 2) + 18,
+    },
+    "Expo":
+    {
+        x: (canvas.width / 2) + 0, // Removed
+        y: (canvas.height / 2) - 0,// Removed
+    },
+    "Tampines":
+    {
+        x: (canvas.width / 2) + 413,
+        y: (canvas.height / 2) - 19,
+    },
+    "Bugis":
+    {
+        x: (canvas.width / 2) + 203,
+        y: (canvas.height / 2) + 150,
+    },
+    "Orchard":
+    {
+        x: (canvas.width / 2) + 48,
+        y: (canvas.height / 2) + 117,
+    }
+
+
+}
+
 var trainX = (canvas.width / 2) - 500;
 var lineX = (canvas.width / 2) - 478;
 var targetX = trainX - 1800; // Move 100px to the left
 var speed = 5; // Pixels per frame
+
+
+var Current_Location_X = canvas.width / 2;
+var Current_Location_Y = canvas.height / 2;
+var Current_Location_R = 5;
+var blinkOn = false;
+var Blink_Loop = null;
 
 //-----------------------------------------------------------------------
 
@@ -968,8 +1108,38 @@ function Load_Game_Station_Page()
 }
 
 function Load_Map_Overlay() {
-    ctx.drawImage(Map_Image, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(Map_Image, 25, 50, canvas.width - 50, canvas.height - 100);
+    var Map_Coordinates = Station_Coordinates[Current_Location];
+    Current_Location_X = Map_Coordinates.x;
+    Current_Location_Y = Map_Coordinates.y;
+    drawOverlay();                         // initial draw
+     Blink_Loop = setInterval(() => {
+        blinkOn = !blinkOn;                  // flip color
+        drawOverlay();                       // re-draw map & dot
+    }, 800);  // every 500ms
 }
+
+
+function drawOverlay() {
+    // redraw the map
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(Map_Image, 25, 50, canvas.width - 50, canvas.height - 100);
+    if (blinkOn)
+    {
+        ctx.beginPath();
+        ctx.arc(Current_Location_X, Current_Location_Y, Current_Location_R, 0, Math.PI * 2);
+        ctx.fillStyle = 'limegreen';
+        ctx.fill();
+    }
+}
+
+function Close_Map_Overlay() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    clearInterval(Blink_Loop);
+    Blink_Loop = null;
+    Load_Game_Station_Page();
+}
+
 
 var Start_Menu_Page = true;
 
@@ -1020,6 +1190,13 @@ var Map_Btn_Width = 90;
 var Map_Btn_Height = 110;
 
 
+var Map_Overlay = false;
+var Map_Close_Btn_X_Axis = canvas.width / 2 + 537;
+var Map_Close_Btn_Y_Axis = canvas.height / 2 - 286;
+var Map_Close_Btn_Width = 43;
+var Map_Close_Btn_Height = 43;
+
+
 canvas.addEventListener('click', e => 
 {
 	const rect = canvas.getBoundingClientRect();
@@ -1029,27 +1206,22 @@ canvas.addEventListener('click', e =>
     console.log(MouseX);
     console.log(MouseY);
 
-	if(Start_Menu_Page)
-	{
-		if(MouseX >= Play_Btn_X_Axis && MouseX <= Play_Btn_X_Axis + Play_Btn_Width && MouseY >= Play_Btn_Y_Axis - Play_Btn_Height && MouseY <= Play_Btn_Y_Axis)
-		{
-			console.log("Play Button Clicked")
+    if (Start_Menu_Page) {
+        if (MouseX >= Play_Btn_X_Axis && MouseX <= Play_Btn_X_Axis + Play_Btn_Width && MouseY >= Play_Btn_Y_Axis - Play_Btn_Height && MouseY <= Play_Btn_Y_Axis) {
+            console.log("Play Button Clicked")
             Load_Game_Diffcutly_Page();
             Start_Menu_Page = false;
             Diffculty_Menu_Page = true;
-			// Need to fix when switch to another scene this clickable area is disable
-		}
-		else if(MouseX >= Instruction_Btn_X_Axis && MouseX <= Instruction_Btn_X_Axis + Instruction_Btn_Width && MouseY >= Instruction_Btn_Y_Axis - Instruction_Btn_Height && MouseY <= Instruction_Btn_Y_Axis)
-		{
-			console.log("Instruction Button Clicked")
-			// Need to fix when switch to another scene this clickable area is disable
-		}
-	}
-	
-	else if(Diffculty_Menu_Page)
-	{
-		if(MouseX >= Easy_Btn_X_Axis && MouseX <= Easy_Btn_X_Axis + Easy_Btn_Width && MouseY <= Easy_Btn_Y_Axis + Easy_Btn_Height && MouseY >= Easy_Btn_Y_Axis)
-        {
+            // Need to fix when switch to another scene this clickable area is disable
+        }
+        else if (MouseX >= Instruction_Btn_X_Axis && MouseX <= Instruction_Btn_X_Axis + Instruction_Btn_Width && MouseY >= Instruction_Btn_Y_Axis - Instruction_Btn_Height && MouseY <= Instruction_Btn_Y_Axis) {
+            console.log("Instruction Button Clicked")
+            // Need to fix when switch to another scene this clickable area is disable
+        }
+    }
+
+    else if (Diffculty_Menu_Page) {
+        if (MouseX >= Easy_Btn_X_Axis && MouseX <= Easy_Btn_X_Axis + Easy_Btn_Width && MouseY <= Easy_Btn_Y_Axis + Easy_Btn_Height && MouseY >= Easy_Btn_Y_Axis) {
             console.log("Easy Button Clicked")
             Game_Diffculty('Easy');
             Load_Game_Station_Page();
@@ -1085,9 +1257,20 @@ canvas.addEventListener('click', e =>
         if (MouseX >= Map_Btn_X_Axis && MouseX <= Map_Btn_X_Axis + Map_Btn_Width && MouseY <= Map_Btn_Y_Axis + Map_Btn_Height && MouseY >= Map_Btn_Y_Axis) {
             console.log("Map Clicked")
             Load_Map_Overlay();
+            Map_Overlay = true;
+            Main_Game_Page = false;
+
         }
     }
 
+    else if (Map_Overlay) {
+        if (MouseX >= Map_Close_Btn_X_Axis && MouseX <= Map_Close_Btn_X_Axis + Map_Close_Btn_Width && MouseY <= Map_Close_Btn_Y_Axis + Map_Close_Btn_Height && MouseY >= Map_Close_Btn_Y_Axis) {
+            console.log("Close Map Clicked")
+            Close_Map_Overlay();
+            Map_Overlay = false;
+            Main_Game_Page = true;
+        }
+    }
 });
 
 document.getElementById("Game_Play").style.display = "none";
