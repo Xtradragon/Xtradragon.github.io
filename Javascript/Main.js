@@ -1010,6 +1010,11 @@ var Start_Travel_Btn_Y_Axis = canvas.height / 2 + 300;
 var Start_Travel_Btn_Width = 185;
 var Start_Travel_Btn_Height = 50;
 
+var Map_Btn_X_Axis = canvas.width / 2 + 253.5;
+var Map_Btn_Y_Axis = canvas.height / 2 + 170;
+var Map_Btn_Width = 90;
+var Map_Btn_Height = 110;
+
 
 canvas.addEventListener('click', e => 
 {
@@ -1071,6 +1076,11 @@ canvas.addEventListener('click', e =>
         if (MouseX >= Start_Travel_Btn_X_Axis && MouseX <= Start_Travel_Btn_X_Axis + Start_Travel_Btn_Width && MouseY <= Start_Travel_Btn_Y_Axis + Start_Travel_Btn_Height && MouseY >= Start_Travel_Btn_Y_Axis) {
             console.log("Start Travel Clicked")
             Start_Train();
+        }
+
+        if (MouseX >= Map_Btn_X_Axis && MouseX <= Map_Btn_X_Axis + Map_Btn_Width && MouseY <= Map_Btn_Y_Axis + Map_Btn_Height && MouseY >= Map_Btn_Y_Axis) {
+            console.log("Map Clicked")
+            
         }
     }
 
