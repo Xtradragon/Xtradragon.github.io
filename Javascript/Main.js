@@ -820,7 +820,7 @@ Square_Btn_Image.src = 'Images/Square_Btn_Image.png';
 Start_Travel_Btn_Image.src = 'Images/Start_Travel_Btn_Image.png';
 Forward_Arrow_Image.src = 'Images/Forward_Arrow_Image.png';
 Backward_Arrow_Image.src = 'Images/Backward_Arrow_Image.png';
-Map_Image.src = 'Images/Map_Image.png';
+Map_Image.src = 'Images/Map.png';
 
 //-----------------------------------------------------------------------
 var Default_Train = new Image();
