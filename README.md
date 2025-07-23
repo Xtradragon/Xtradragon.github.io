@@ -1,6 +1,7 @@
 # MRT-Game
-
-https://xtradragon.github.io/MRT-Game/ Website
+https://xtradragon.github.io/
+https://xtradragon.github.io/MRT-Game/ 
+Website
 
 
 Needed Fix:
