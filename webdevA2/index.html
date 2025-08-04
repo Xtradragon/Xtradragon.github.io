@@ -5,7 +5,12 @@
 <title>index</title>
 	<link rel="stylesheet" href="style.css">
 	<script src="main.js" defer></script>
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="icon" type="imgae/x-icon" href="images/MRT_Train.ico">
+	
+	<link rel="manifest" href="manifest.json" />
 </head>
 	
 <body>
@@ -332,10 +337,15 @@
 						<button class="Home_Btn">Home</button>
 						<button class="History_Btn">History's</button>
 					</div>
+					
+					<div id="Website_Functions">
+						<button id="Fullscreen_Btn">FullScreen</button>
+						<button id="Exit_Fullscreen_Btn">Exit Full Screen</button>
+					</div>
 				</div>
 				<hr>
 				<div class="footer-bottom">
-					<a href="https://xtradragon.github.io/Web_Dev_A2/" target="_blank">
+					<a href="https://xtradragon.github.io/webdevA2" target="_blank">
 						<img src="images/QR_Code.png" alt="QR_Code_Image">
 					</a>
 					<p>Scan to view in Mobile</p>

@@ -843,6 +843,7 @@ footer
 {
 	padding-top: 2%;
     display: flex;
+	flex-wrap: wrap;
     justify-content: space-between; /* Ensures left & right alignment */
     align-items: center;
 }
@@ -853,12 +854,12 @@ footer h1
     margin: 0;
 }
 
-footer .Nav_Links
+footer .Nav_Links , #Website_Functions
 {
     display: flex;
 }
 
-footer .Nav_Links button
+footer .Nav_Links button , #Website_Functions button
 {
     border: none;
     color: white;
@@ -897,12 +898,15 @@ hr
 {
     height: auto;
     width: 150px;
+	border-radius: 10px;
+	border: #132A00 solid 5px;
 }
 
 .footer-bottom h4
 {
 	color: #ffffff;
 }
+
 /*------------------------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -1102,15 +1106,15 @@ hr
 	/*==========================================================================================================*/
 	
 	/*==========================================================================================================*/
-	footer .Nav_Links button {
+	footer .Nav_Links button , #Website_Functions button{
 		font-size: 15px;
 		padding: 2.55vw 4.5vw;
 		margin-right: 0px;
 		margin: 0px 20px;
 	}
 
-	footer .Nav_Links {
-		margin: 0 auto;
+	footer .Nav_Links , #Website_Functions{
+		margin: 2% auto;
 	}
 
 	.footer-bottom img, .footer-bottom p 
