@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>index</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="main.js" defer></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="icon" type="imgae/x-icon" href="images/MRT_Train.ico">
+	
+	<link rel="manifest" href="manifest.json" />
+</head>
+	
+<body>
+	<!--___________________________________________________________________________________________________________________________________________________-->
+	<!-- Navigation Bar -->
+	<nav>
+		<button id="Hamburger_Menu">
+			<img src="images/Hamburger_icon.png" width="40" alt="Hamburger_Icon">
+		</button>
+		<ul class="Nav_Links">
+			<li><button class="About_Btn">About</button></li>
+			<li><button class="Home_Btn" id="Active_Btn" >Home</button></li>
+			<li><button class="History_Btn">History's</button></li>
+		</ul>
+	</nav>
+	<!--___________________________________________________________________________________________________________________________________________________-->
+	
+	
+
+	<main id="Page_Container">
+		<!--=======================================================================================================================================================-->
+		<!-- Home Page -->
+		<section class="Pages" id="Home_Page">
+			<div id="Intro_Banner">
+				
+				<!--___________________________________________________________________________________________________________________________________________________-->
+				<!-- Left Side Description and Buttons -->
+				<div id="Intro_Card_Left">
+					<h1>SINGAP <br> MRT</h1>
+					
+					<p>
+						With Singapore MRT, take an exciting trip through the city-state's famous MRT system. For anyone interested in our public transportation system, this interactive platform provides a special fusion of simulation and education.
+					</p>
+					
+					<button id="Learn_About_Station_btn">Learn About Stations</button>
+					<button id="Learn_About_Trains_btn">Learn About Trains</button>
+					<button id="Play_Simulator_Btn">Play Simulator</button>
+					
+				</div>
+				<!--___________________________________________________________________________________________________________________________________________________-->
+				
+				
+				<!--___________________________________________________________________________________________________________________________________________________-->
+				<!-- Right Side Description -->
+				<div id="Intro_Card_Right">
+				
+					<h1>ORE</h1>
+				
+				</div>
+				
+				<!-- Clouds -->
+				<img src="images/Cloud.png" id="cloud1" alt="Cloud 1">
+				<img src="images/Cloud.png" id="cloud2" alt="Cloud 2">
+				<img src="images/Cloud.png" id="cloud3" alt="Cloud 3">
+			</div>
+			<!--___________________________________________________________________________________________________________________________________________________-->
+			
+			
+			<!--___________________________________________________________________________________________________________________________________________________-->
+			<!-- MiniGame -->
+			<div id="MiniGame_Banner">
+				<h1> The Station simulator </h1>
+				<canvas id="Mini_Game_Canvas">
+				</canvas>
+				<div id="Game_Instruction">
+					<h1>Game Overview and Instruction</h1>
+					<hr>
+					<p>
+						Welcome to the Station Transfer Challenge! With the help of this mini-game, you can improve your ability to navigate the MRT network and learn how to transfer stations accurately and efficiently. Your task is straightforward: make the appropriate transfers at interchange points to get your train from your Current Station to a specified Next Station.
+					</p>
+					<br><br>
+					<hr>
+					<p>
+						All essential game controls and information are found on the Phone interface at the bottom right of your screen. This is where you'll see your current and destination stations, access the map, check your train's direction, and most importantly, use the "Switch Line" option to make transfers at interchange stations.
+					</p>
+				</div>
+			</div>
+			<!--___________________________________________________________________________________________________________________________________________________-->
+			
+		</section>
+		<!--======================================================================================================================================================-->
+		
+		
+		
+		<!--=======================================================================================================================================================-->
+		<!-- About Page -->
+		<section class="Pages" id="About_Page">
+			<div class="logo">
+				<img src="images/Logo.png" alt="Logo">
+			</div>
+			
+			<div id="Train_Length_Display">
+				<h1>92 M</h1>
+				<hr>
+			</div>
+			
+			<div id="Train_Image_Banner">
+				<img src="images/Default_Train.png" alt="Default_Train_Iamge">
+			</div>
+			
+			<div id="Train_Info_Banner">
+				<div class="Train_Info_Card">
+					<h1>150 Tonnes</h1>
+					<img src="images/Weight_Icon.png" alt="Weight_Icon">
+				</div>
+				<div class="Train_Info_Card">
+					<h1>93 meters long</h1>
+					<img src="images/Measurement_Icon.png" alt="Length_Icon">
+				</div>
+				<div class="Train_Info_Card">
+					<h1>Nearly 2,000 People</h1>
+					<img src="images/People_Icon.png" alt="People_Icon">
+				</div>
+				<div class="Train_Info_Card">
+					<h1>198 Trains</h1>
+					<img src="images/Train_Icon.png" alt="Train_Icon">
+				</div>
+				<div class="Train_Info_Card">
+					<h1>Around 80km/h</h1>
+					<img src="images/Speed_Icon.png" alt="Speed_Icon">
+				</div>
+				
+				<div class="Bush_Background"></div>
+				
+			</div>
+			
+			
+			<div id="Types_Of_Lines_Banner">
+				<h1>TYPES OF LINES</h1>
+
+				<div class="Cards_Container">
+					<div class="Flip_Card">
+						<div class="Front_Card">
+							<div id="Red_Train"></div>
+							<div class="Card_Label">
+								<p class="Line_Name">North South Line</p>
+								<p class="Hint_Text">Hover Over Me</p>
+								<div class="Red_Underline"></div>
+							</div>
+						</div>
+						<div class="Back_Card">
+							<p class="Title_Text">North South Line</p>
+							<p class="Description_Text" id="Red_Line">North-South Line (NSL) connecting Yio Chu Kang to Toa Payoh in 1987. Though it started small, NSL was the first step in Singapore’s grand vision of an integrated transport system. </p>
+						</div>
+					</div>
+
+					<div class="Flip_Card">
+						<div class="Front_Card">
+							<div id="Green_Train"></div>
+							<div class="Card_Label">
+								<p class="Line_Name">East West Line</p>
+								<p class="Hint_Text">Hover Over Me</p>
+								<div class="Green_Underline"></div>
+							</div>
+						</div>
+						<div class="Back_Card">
+							<p class="Title_Text">East West Line</p>
+							<p class="Description_Text" id="Green_Line">Crossing the island from Tuas Link to Pasir Ris, and measuring about 57km, the East-West Line (EWL) is the longest train line in operation in Singapore. It started as part of the North-South Line (NSL) and was expanded southwards towards Outram in 1987.</p>
+						</div>
+					</div>
+
+					<div class="Flip_Card">
+						<div class="Front_Card">
+							<div id="Blue_Train"></div>
+							<div class="Card_Label">
+								<p class="Line_Name">Down Town Line</p>
+								<p class="Hint_Text">Hover Over Me</p>
+								<div class="Blue_Underline"></div>
+							</div>
+						</div>
+						<div class="Back_Card">
+							<p class="Title_Text">Down Town Line</p>
+							<p class="Description_Text" id="Blue_Line">The Downtown Line (DTL) is Singapore’s fifth MRT line and a game changer for public transport in Singapore. DTL reaches out to residential areas such as Bukit Panjang, Bukit Timah, MacPherson and Bedok Reservoir that were previously not served by the MRT.</p>
+						</div>
+					</div>
+
+					<div class="Flip_Card">
+						<div class="Front_Card">
+							<div id="Orange_Train"></div>
+							<div class="Card_Label">
+								<p class="Line_Name">Circle Line</p>
+								<p class="Hint_Text">Hover Over Me</p>
+								<div class="Orange_Underline"></div>
+							</div>
+						</div>
+						<div class="Back_Card">
+							<p class="Title_Text">Circle Line</p>
+							<p class="Description_Text" id="Orange_Line">Circle Line (CCL) was a feat that required innovations in design, engineering and construction. It took place in challenging soil conditions, a maze of underground structures, and under a densely packed surface of roads, expressways and buildings.</p>
+						</div>
+					</div>
+
+					<div class="Flip_Card">
+						<div class="Front_Card">
+							<div id="Brown_Train"></div>
+							<div class="Card_Label">
+								<p class="Line_Name">Thomson East Coast Line</p>
+								<p class="Hint_Text">Hover Over Me</p>
+								<div class="Brown_Underline"></div>
+							</div>
+						</div>
+						<div class="Back_Card">
+							<p class="Title_Text">Thomson East Coast Line</p>
+							<p class="Description_Text" id="Brown_Line">Thomson-East Coast Line 4 (TEL4), around 235,000 households will be within a 10-minute walk from an existing TEL station (Woodlands North to Bayshore). Commuters can expect travel time savings of up to 50 per cent when using TEL.</p>
+						</div>
+					</div>
+
+					<div class="Flip_Card">
+						<div class="Front_Card">
+							<div id="Purple_Train"></div>
+							<div class="Card_Label">
+								<p class="Line_Name">North East Line</p>
+								<p class="Hint_Text">Hover Over Me</p>
+								<div class="Purple_Underline"></div>
+							</div>
+						</div>
+						<div class="Back_Card">
+							<p class="Title_Text">North East Line</p>
+							<p class="Description_Text" id="Purple_Line">Built using the latest technology and engineering techniques of its time, NEL heralded an era of automated and driverless mass rapid transit systems, an enhanced commuter experience and the beginning of our multi-modal, integrated public transport model.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--======================================================================================================================================================-->
+		
+		
+		<!--=======================================================================================================================================================-->
+		<!-- History Page -->
+		<section class="Pages" id="History_Page">
+			<div class="logo">
+				<img src="images/Logo.png" alt="Logo">
+			</div>
+			
+			<div id="History_Banner">
+				<!--___________________________________________________________________________________________________________________________________________________-->
+				<!-- Left Side Description and Buttons -->
+				<div id="History_Info_Left">
+					
+					<h1 id="History_Title">YEAR (1987) HISTORY</h1>
+					
+					<p id="History_Description">
+						The history of the Mass Rapid Transit (MRT) system of Singapore commenced with
+						its planning in the 1960s, which finally led to its opening in 1987 with the launch of
+						a 6 km section of the North South Line (NSL) from Yio Chu Kang to Toa Payoh.
+						Since its inception, the rapid transit system has played a crucial role in the public
+						transportation network and the wider development of the country as a whole,
+						providing a fast and efficient means of transportation for millions of Singaporeans daily.
+					</p>
+					
+					<a href="https://en.wikipedia.org/wiki/History_of_the_MRT_(Singapore)" target="_blank"> More Info </a>
+					
+				</div>
+				<!--___________________________________________________________________________________________________________________________________________________-->
+
+				<!--___________________________________________________________________________________________________________________________________________________-->
+				<!-- Right Side Description -->
+				<div id="History_Info_Right">
+					<button class="Timeline_btn"><img class="Timeline_Icon" src="images/Time_Line_Selected_Icon.png" alt="Timeline_Icon">1987</button>
+					<div class="vl" id="First_Vertical_Line"></div>
+					<button class="Timeline_btn"><img class="Timeline_Icon" src="images/Time_Line_Unselected_Icon.png" alt="Timeline_Icon">1990</button>
+					<div class="vl" id="Second_Vertical_Line"></div>
+					<button class="Timeline_btn"><img class="Timeline_Icon" src="images/Time_Line_Unselected_Icon.png" alt="Timeline_Icon">2003</button>
+				</div>
+				<!--___________________________________________________________________________________________________________________________________________________-->
+			</div>
+			
+			<div id="Quiz_Section">
+				<!--___________________________________________________________________________________________________________________________________________________-->
+				<!-- Question Card on the left -->
+				<div id="Questions_Card">
+					<h1> - Questions 1 - </h1>
+					<p>
+						How many operational MRT lines currently serve commuters in Singapore (excluding LRT lines)?
+					</p>
+				</div>
+				<!--___________________________________________________________________________________________________________________________________________________-->
+			
+				<!--_______________________________________________________________________________________________________________________________________________-->
+				<!-- Answer Card on the Right side -->
+				<div id="Answers_Card">
+					<fieldset>
+						<label>
+							<input type="radio" name="Question" value="Four">
+							<span class="Quiz_Answer_Icon">A</span>Four
+						</label><br>
+
+						<label>
+							<input type="radio" name="Question" value="Five">
+							<span class="Quiz_Answer_Icon">B</span>Five
+						</label><br>
+
+						<label>
+							<input type="radio" name="Question" value="Six">
+							<span class="Quiz_Answer_Icon">C</span>Six
+						</label><br>
+
+						<label>
+							<input type="radio" name="Question" value="Seven">
+							<span class="Quiz_Answer_Icon">D</span>Seven
+						</label>
+
+					</fieldset>		
+				</div>
+				<!--___________________________________________________________________________________________________________________________________________________-->
+			</div>
+			
+			<!--___________________________________________________________________________________________________________________________________________________-->
+			<!-- Belowm the Question and Answer Card -->
+			<div id="Score_Board_Section">
+				<h1> - Previous Users Attempts - </h1>
+			</div>
+			<!--___________________________________________________________________________________________________________________________________________________-->
+			
+		</section>	
+		<!--=======================================================================================================================================================-->
+	
+		<!--___________________________________________________________________________________________________________________________________________________-->
+		<!-- Footer -->
+		<div>
+			<footer>
+				<div class="footer-top">
+					<div class="Nav_Links">
+						<button class="About_Btn">About</button>
+						<button class="Home_Btn">Home</button>
+						<button class="History_Btn">History's</button>
+					</div>
+					
+					<div id="Website_Functions">
+						<button id="Fullscreen_Btn">FullScreen</button>
+						<button id="Exit_Fullscreen_Btn">Exit Full Screen</button>
+					</div>
+				</div>
+				<hr>
+				<div class="footer-bottom">
+					<a href="https://xtradragon.github.io/webdevA2" target="_blank">
+						<img src="images/QR_Code.png" alt="QR_Code_Image">
+					</a>
+					<p>Scan to view in Mobile</p>
+					<h4> Lab 01  /  Wong Jun Loong  /  254291R </h4>
+				</div>
+			</footer>
+		</div>
+		<!--___________________________________________________________________________________________________________________________________________________-->
+	
+	</main>
+	</body>	
+</html>
